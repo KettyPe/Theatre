@@ -51,12 +51,23 @@
   padding: 0px;
   margin: 0px;
   border: 0px;
+  outline: none;
 }
 
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
 }
 
 html,
@@ -72,7 +83,7 @@ body {
   font-size: 20px;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -266,7 +277,7 @@ body {
     color: #ddc692;
   }
   .btn-read:hover::before, .btn-read:hover::after {
-    width: 50%;
+    width: 51%;
     background-color: #010101;
   }
 }
@@ -326,11 +337,6 @@ body {
   .scroll-up {
     top: 127px;
     right: 20px;
-  }
-}
-@media (max-width: 1180px) {
-  .scroll-up {
-    display: none;
   }
 }
 .header {
@@ -872,6 +878,7 @@ body {
   margin-bottom: 24px;
 }
 .repertoire__title {
+  text-transform: uppercase;
   font-size: 18px;
   font-weight: bold;
   color: #010101;
@@ -905,8 +912,10 @@ body {
   z-index: 2;
 }
 .item-repertoire__age span {
+  font-weight: 700;
   font-size: 18px;
   color: #000;
+  margin-left: 3px;
 }
 .item-repertoire__image {
   position: relative;
@@ -959,11 +968,10 @@ body {
   margin: 0 auto;
 }
 
-.grid::after {
-  content: "";
-  flex-grow: 999999999;
-}
-
+/* .grid::after {
+    content: '';
+    flex-grow: 999999999;
+  } */
 .grid-item {
   cursor: pointer;
   margin-bottom: 25px;
@@ -1460,6 +1468,10 @@ body {
     display: block;
     padding: 45px 0px;
   }
+  .scroll-up {
+    top: 196px;
+    right: 26px;
+  }
 }
 @media (max-width: 768px) {
   .menu__burder-body {
@@ -1684,6 +1696,12 @@ body {
   .footer__body {
     padding: 25px 0px;
   }
+  .footer__links {
+    margin: 0px 0px 20px 0px;
+  }
+  .scroll-up {
+    top: 214px;
+  }
 }
 @media (max-width: 420px) {
   .header__en,
@@ -1697,6 +1715,12 @@ body {
   }
   .menu__sub-list {
     margin-left: 29px;
+  }
+}
+@media (max-width: 380px) {
+  .scroll-up {
+    top: 236px;
+    right: 15px;
   }
 }
 .swiper {
