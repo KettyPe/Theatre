@@ -3903,10 +3903,6 @@
             spaceBetween: 0,
             autoHeight: false,
             speed: 800,
-            effect: "fade",
-            fadeEffect: {
-                crossFade: true
-            },
             autoplay: {
                 delay: 3e3,
                 disableOnInteraction: false
@@ -4026,13 +4022,23 @@
     };
     const da = new DynamicAdapt("max");
     da.init();
-    ymaps.ready(init);
-    function init() {
-        new ymaps.Map("map", {
+    ymaps.ready((function() {
+        var myMap = new ymaps.Map("map", {
             center: [ 54.18608390665436, 45.18019251975669 ],
             zoom: 16
+        }, {
+            searchControlProvider: "yandex#search"
+        }), myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+            hintContent: "Тула",
+            balloonContent: "Тула"
+        }, {
+            iconLayout: "default#image",
+            iconImageHref: "img/map-market.png",
+            iconImageSize: [ 64, 64 ],
+            iconImageOffset: [ -120, -70 ]
         });
-    }
+        myMap.geoObjects.add(myPlacemark).add(myPlacemarkWithContent);
+    }));
     const pe = document.querySelector(".scroll-up");
     window.addEventListener("scroll", (() => {
         (window.pageYOffset || document.documentElement.scrollTop) > 100 ? pe.classList.add("scroll-up--active") : pe.classList.remove("scroll-up--active");
